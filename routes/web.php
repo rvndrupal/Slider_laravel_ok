@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/', 'FrontController@index')->name('home');
 
+Route::get('/videos', 'FrontController@videos')->name('videos');
+
 
 
 Route::group(['prefix' => 'admin'], function () {

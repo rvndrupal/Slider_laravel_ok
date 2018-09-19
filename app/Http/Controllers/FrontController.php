@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\front;
 use App\Slider;
+use App\Video;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -19,6 +20,24 @@ class FrontController extends Controller
        $sliders=Slider::orderBy('id','desc')->get();      
 
         return view('sliders.slider',compact('sliders'));
+    }
+
+    public function videos()
+    {
+        $url=Video::orderBy('id','desc')->pluck('url');
+
+        $ruta="https://www.youtube.com/embed/";
+
+        $recortar=substr($url, 22);
+
+        $urlok="https://www.youtube.com/embed/".$recortar;
+
+        //dd($url ,$recortar);
+
+        //dd($urlok);
+
+        
+        return view('videos.videos',compact('urlok'));
     }
 
     /**
