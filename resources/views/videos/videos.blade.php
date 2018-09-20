@@ -51,8 +51,10 @@
      
 
   <div class="card">    
-      
+      @foreach ($videos as $video)         
        <iframe class="card-img-top" width="354" height="160" src="{{ $urlok }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+       @endforeach
+
     <div class="card-body">
       {{--  
       <h5 class="card-title">{{ $video->titulo }}</h5>

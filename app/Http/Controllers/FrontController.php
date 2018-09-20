@@ -24,6 +24,8 @@ class FrontController extends Controller
 
     public function videos()
     {
+        $videos=Video::orderBy('id','desc')->get();  
+
         $url=Video::orderBy('id','desc')->pluck('url');
 
         $ruta="https://www.youtube.com/embed/";
@@ -34,10 +36,10 @@ class FrontController extends Controller
 
         //dd($url ,$recortar);
 
-        //dd($urlok);
+        dd($urlok);
 
         
-        return view('videos.videos',compact('urlok'));
+        return view('videos.videos',compact('videos','urlok'));
     }
 
     /**
